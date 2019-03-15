@@ -13,7 +13,11 @@ public class Shape {
     //printShape(enum, int)
     public void printShape(ShapeEnum e, int n) {
         //get shape from enum
+<<<<<<< HEAD
         switch (e) {
+=======
+        if() {
+>>>>>>> 6a9968e710632f15eb2c802424a364b8ae944013
 
         }
 

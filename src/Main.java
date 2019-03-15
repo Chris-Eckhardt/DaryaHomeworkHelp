@@ -1,4 +1,15 @@
 import java.util.Scanner;
+<<<<<<< HEAD
+=======
+
+public class Main {
+
+    enum Shape {
+        TRIANGLE,
+        RECTANGLE,
+        DIAMOND
+    }
+>>>>>>> 6a9968e710632f15eb2c802424a364b8ae944013
 
 public class Main {
     
@@ -16,8 +27,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while(true) {
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> 6a9968e710632f15eb2c802424a364b8ae944013
             while(!pass) {
 
                 System.out.print("What shape would you like? " +
