@@ -40,20 +40,20 @@ public class Shape {
 
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                    System.out.print("* ");
+                     s = s + "* ";
                 }
-                System.out.println("");
-            }
-            return null;
-        }
+                     s = s + "\n";
+                return s;
+    }
 
     //triangle(int) prints triangle of size n and adds to array
     private String triangle(int n) {
-        System.out.println("");
+        
         for (int i = 1; i <= n; i++) {
-            System.out.println("");
+             s = s + "* ";
             for (int j = 0; j < i; j++) {
-                System.out.print("* ");
+                  s = s + "\n";
+                return s;
             }
         }
         System.out.println("");
