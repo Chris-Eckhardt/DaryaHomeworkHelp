@@ -17,37 +17,48 @@ public class Shape {
     }
 
     //Diamond(int) prints rectangle of size n and adds to array
-    private String diamond(int n) { return null; }
-    
-    for(int i = 0; i < x; i++){
-            for(int j = x- i; j > 0; j--) {
-                 System.out.print(" ");
+    private String diamond(int n) {
+        String s = "";
+
+        for (int i = 0; i < n; i++) {
+            for (int j = n - i; j > 0; j--) {
+                s = s + " ";
             }
-            
-                for(int j = 0; j < x; j++) {
-           System.out.print("* "); 
+
+            for (int j = 0; j < n; j++) {
+                s = s + "* ";
             }
-            System.out.println("");
+            s = s + "\n";
+        }
+
+        return s;
+    }
     
 
     //Rectangle(int) prints diamond of size n and adds to array
-    private String rectangle(int n) { return null; }
-    
-        for(int i = 0; i < x; i++) {
-            for(int j = 0; j < x; j++) {
-           System.out.print("* "); 
+    private String rectangle(int n){
+
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    System.out.print("* ");
+                }
+                System.out.println("");
             }
-            System.out.println("");
+            return null;
+        }
 
     //triangle(int) prints triangle of size n and adds to array
-    private String triangle(int n) { return null; }
-           System.out.println("");
-        for(int i = 1; i <= n; i++) {
+    private String triangle(int n) {
+        System.out.println("");
+        for (int i = 1; i <= n; i++) {
             System.out.println("");
-            for(int j = 0; j < i; j++) {
+            for (int j = 0; j < i; j++) {
                 System.out.print("* ");
             }
         }
         System.out.println("");
+
+        return null;
+    }
            
 }
