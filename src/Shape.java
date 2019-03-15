@@ -11,6 +11,9 @@ public class Shape {
     //printShape(enum, int)
     public void printShape(Enum e, int n) {
         //get shape from enum
+        if() {
+
+        }
 
         //add returned string to list
         
@@ -30,6 +33,7 @@ public class Shape {
             }
             s = s + "\n";
         }
+        System.out.println(s);
 
         return s;
     }
@@ -37,31 +41,33 @@ public class Shape {
 
     //Rectangle(int) prints diamond of size n and adds to array
     private String rectangle(int n){
-        String s = "";
-        System.out.println(s);
+            String s = "";
+
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                     s = s + "* ";
+                    s = s + "* ";
                 }
-                     s = s + "\n";
-                return s;
+                s = s + "\n";
+            }
+            System.out.println(s);
+
+            return s;
     }
 
     //triangle(int) prints triangle of size n and adds to array
     private String triangle(int n) {
-          String s = "";
-        System.out.println(s);
+        String s = "";
+        
         for (int i = 1; i <= n; i++) {
+             s = s + "* ";
             for (int j = 0; j < i; j++) {
-                   s = s + "* ";   
-            }
-                   s = s + "\n";
-                return s;
+                  s = s + "\n";
+
             }
         }
-        System.out.println("");
+        System.out.println(s);
 
-        return null;
+        return s;
     }
            
 }
