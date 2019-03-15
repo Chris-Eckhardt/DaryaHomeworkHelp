@@ -1,13 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-
-    enum Shape {
-        TRIANGLE,
-        RECTANGLE,
-        DIAMOND
-    }
-
+    
     public static void main(String[] args) {
         prompt();
     }
@@ -17,6 +11,8 @@ public class Main {
          String input = "";
         int in = 0;
         int n = 0;
+        boolean pass = false;
+        int num = 0;
         Scanner scanner = new Scanner(System.in);
 
         while(true) {

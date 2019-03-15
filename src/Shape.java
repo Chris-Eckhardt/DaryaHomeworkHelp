@@ -1,3 +1,5 @@
+import com.sun.tools.classfile.Annotation;
+
 import java.util.ArrayList;
 
 public class Shape {
@@ -9,8 +11,11 @@ public class Shape {
     public Shape() {}
 
     //printShape(enum, int)
-    public void printShape(Enum e, int n) {
+    public void printShape(ShapeEnum e, int n) {
         //get shape from enum
+        switch (e) {
+
+        }
 
         //add returned string to list
         
@@ -18,48 +23,53 @@ public class Shape {
 
     //Diamond(int) prints rectangle of size n and adds to array
     private String diamond(int n) {
-        String shapeString = "";
+        String s = "";
 
         for (int i = 0; i < n; i++) {
             for (int j = n - i; j > 0; j--) {
-                shapeString = shapeString + " ";
+                s = s + " ";
             }
 
             for (int j = 0; j < n; j++) {
-                shapeString = shapeString + "* ";
+                s = s + "* ";
             }
-            shapeString = shapeString + "\n";
+            s = s + "\n";
         }
-        System.out.println(shapeString);
+        System.out.println(s);
 
-        return shapeString;
+        return s;
     }
     
 
     //Rectangle(int) prints diamond of size n and adds to array
     private String rectangle(int n){
+            String s = "";
 
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                    System.out.print("* ");
+                    s = s + "* ";
                 }
-                System.out.println("");
+                s = s + "\n";
             }
-            return null;
-        }
+            System.out.println(s);
+
+            return s;
+    }
 
     //triangle(int) prints triangle of size n and adds to array
     private String triangle(int n) {
-        System.out.println("");
+        String s = "";
+        
         for (int i = 1; i <= n; i++) {
-            System.out.println("");
+             s = s + "* ";
             for (int j = 0; j < i; j++) {
-                System.out.print("* ");
+                  s = s + "\n";
+
             }
         }
-        System.out.println("");
+        System.out.println(s);
 
-        return null;
+        return s;
     }
            
 }
