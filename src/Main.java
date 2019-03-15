@@ -1,40 +1,24 @@
 import java.util.Scanner;
-<<<<<<< HEAD
-=======
+
 
 public class Main {
 
-    enum Shape {
-        TRIANGLE,
-        RECTANGLE,
-        DIAMOND
-    }
->>>>>>> 6a9968e710632f15eb2c802424a364b8ae944013
-
-public class Main {
-    
     public static void main(String[] args) {
         prompt();
     }
 
     private static void prompt() {
-        
-         String input = "";
+
+        String input = "";
         int in = 0;
         int n = 0;
         boolean pass = false;
         int num = 0;
         Scanner scanner = new Scanner(System.in);
 
-        while(true) {
-<<<<<<< HEAD
+        while (true) {
 
-
-=======
-
-
->>>>>>> 6a9968e710632f15eb2c802424a364b8ae944013
-            while(!pass) {
+            while (!pass) {
 
                 System.out.print("What shape would you like? " +
                         "\n 1 : Triangle " +
@@ -45,16 +29,14 @@ public class Main {
                 input = scanner.next();
 
 
+                try {
+                    num = Integer.parseInt(input);
+                    pass = true;
+                } catch (NumberFormatException ex) {
+                    pass = false;
+                }
 
-
-                    try {
-                        num = Integer.parseInt(input);
-                        pass = true;
-                    } catch (NumberFormatException ex) {
-                        pass = false;
-                    }
-
-                if(in == 4) {
+                if (in == 4) {
                     System.exit(0);
                 }
 
@@ -72,23 +54,6 @@ public class Main {
 
             System.out.println(" ");
 
-            switch (in) {
-                case 1:
-                    Triangle x = new Triangle();
-                    x.printShape(n);
-                    break;
-                case 2:
-                    Rectangle t = new Rectangle();
-                    t.printShape(n);
-                    break;
-                case 3:
-                    Diamond s = new Diamond();
-                    s.printShape(n);
-                    break;
-                default:
-                    // blank
-                    break;
-            }
 
             System.out.println(" ");
 
@@ -97,6 +62,7 @@ public class Main {
             in = 0;
             n = 0;
 
-    }
+        }
 
+    }
 }

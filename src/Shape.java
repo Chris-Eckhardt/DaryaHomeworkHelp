@@ -1,6 +1,5 @@
-import com.sun.tools.classfile.Annotation;
-
 import java.util.ArrayList;
+
 
 public class Shape {
 
@@ -12,17 +11,23 @@ public class Shape {
 
     //printShape(enum, int)
     public void printShape(ShapeEnum e, int n) {
+        String str = null;
+
         //get shape from enum
-<<<<<<< HEAD
+
         switch (e) {
-=======
-        if() {
->>>>>>> 6a9968e710632f15eb2c802424a364b8ae944013
-
+            case DIAMOND:
+                str = diamond(n);
+                break;
+            case TRIANGLE:
+                str = triangle(n);
+                break;
+            case RECTANGLE:
+                str = rectangle(n);
+                break;
         }
-
         //add returned string to list
-        
+        list.add(str);
     }
 
     //Diamond(int) prints rectangle of size n and adds to array
