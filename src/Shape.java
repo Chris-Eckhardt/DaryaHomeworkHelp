@@ -37,7 +37,7 @@ public class Shape {
 
     //Rectangle(int) prints diamond of size n and adds to array
     private String rectangle(int n){
-
+        String s = "";
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
                      s = s + "* ";
@@ -48,11 +48,11 @@ public class Shape {
 
     //triangle(int) prints triangle of size n and adds to array
     private String triangle(int n) {
-        
+          String s = "";
         for (int i = 1; i <= n; i++) {
-             s = s + "* ";
             for (int j = 0; j < i; j++) {
-                  s = s + "\n";
+                   s = s + "* ";    
+                   s = s + "\n";
                 return s;
             }
         }
