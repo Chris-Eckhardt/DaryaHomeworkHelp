@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
 
     enum Shape {
@@ -11,29 +13,16 @@ public class Main {
     }
 
     private static void prompt() {
-
-        //create shape
-
-        //loop start
-
-        //get user input
-
-        //check user input
-
-        //call printshape()
-
-        //end loop
-
-        //write to file
         
          String input = "";
         int in = 0;
         int n = 0;
         Scanner scanner = new Scanner(System.in);
 
-        while(in != 4) {
+        while(true) {
 
-            while (in > 4 || in < 1) {
+
+            while(!pass) {
 
                 System.out.print("What shape would you like? " +
                         "\n 1 : Triangle " +
@@ -42,13 +31,16 @@ public class Main {
                         "\n 4 : EXIT PROGRAM\n\n");
 
                 input = scanner.next();
-        
-    
-                try {
-                    in = Integer.parseInt(input);
-                } catch (NumberFormatException ex) {
-                    in = 0;
-                }
+
+
+
+
+                    try {
+                        num = Integer.parseInt(input);
+                        pass = true;
+                    } catch (NumberFormatException ex) {
+                        pass = false;
+                    }
 
                 if(in == 4) {
                     System.exit(0);

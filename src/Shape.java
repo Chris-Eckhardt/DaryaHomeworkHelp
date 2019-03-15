@@ -18,20 +18,21 @@ public class Shape {
 
     //Diamond(int) prints rectangle of size n and adds to array
     private String diamond(int n) {
-        String s = "";
+        String shapeString = "";
 
         for (int i = 0; i < n; i++) {
             for (int j = n - i; j > 0; j--) {
-                s = s + " ";
+                shapeString = shapeString + " ";
             }
 
             for (int j = 0; j < n; j++) {
-                s = s + "* ";
+                shapeString = shapeString + "* ";
             }
-            s = s + "\n";
+            shapeString = shapeString + "\n";
         }
+        System.out.println(shapeString);
 
-        return s;
+        return shapeString;
     }
     
 
