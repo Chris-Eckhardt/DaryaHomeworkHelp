@@ -1,6 +1,6 @@
 public class Main {
 
-    enum SHAPE{
+    enum Shape {
         TRIANGLE,
         RECTANGLE,
         DIAMOND
@@ -15,6 +15,7 @@ public class Main {
         //create shape
 
         //loop start
+
         //get user input
 
         //check user input
