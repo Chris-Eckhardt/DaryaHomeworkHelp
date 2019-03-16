@@ -159,21 +159,21 @@ public class ShapeMaker {
         String str = "";
         BufferedReader textSource = new BufferedReader(new FileReader("text.txt"));
 
-        try {
-            while ((line = textSource.readLine()) != null) {
+            try {
+                while ((line = textSource.readLine()) != null) {
 
-                if(line == "\n") {
-                    shape.addToArray(str);
-                    str = "";
-                }else{
-                    str = str + line + "\n";
+                    if (line.equals("#")) {
+                        shape.addToArray(str);
+                        str = "";
+                    } else {
+                        str = str + line + "\n";
+                    }
                 }
-
+            } catch (IOException e) {
+                System.out.println("ERROR : @readFile()");
             }
-        } catch(IOException e){
-            System.out.println("ERROR : @readFile()");
         }
-    }
+
 
     public static void writeToFile(String line) {
 
@@ -186,7 +186,7 @@ public class ShapeMaker {
 
             try {
                 writer.append(line);
-                writer.append("\n");
+                writer.append("#\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }
