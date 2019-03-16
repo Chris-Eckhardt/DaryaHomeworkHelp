@@ -39,7 +39,6 @@ public class Main {
                }
 
                if(num == 4) {
-                   scanner.close();
                    System.out.println("/////////// EXITING PROGRAM /////////");
                    System.exit(0);
                }
@@ -77,7 +76,7 @@ public class Main {
                se = ShapeEnum.RECTANGLE;
 
            if(num == 3)
-               se = ShapeEnum.RECTANGLE;
+               se = ShapeEnum.DIAMOND;
 
 
             shape.printShape(se, size); // CALL FOR SHAPE TO BE PRINTED
