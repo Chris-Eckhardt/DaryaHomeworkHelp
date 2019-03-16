@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Shape {
 
     //data structure to store
-    ArrayList<String> list = new ArrayList<>();
+    private ArrayList<String> list = new ArrayList<>();
 
     //constructor
     public Shape() {}
@@ -28,6 +28,14 @@ public class Shape {
         }
         //add returned string to list
         list.add(str);
+    }
+
+    public void recall(int i) {
+        System.out.println(list.get(i));
+    }
+
+    public int getArraySize() {
+        return list.size();
     }
 
     //Diamond(int) prints rectangle of size n and adds to array
