@@ -127,20 +127,25 @@ public class ShapeMaker {
         String input = "0";
         int num = 0;
 
-        while (listSize > 0 && num < listSize) {
+        if(listSize > 0 && num < listSize) {
 
-            System.out.print("There are " + listSize + " shapes in memory. Please choose which you would like to recall (1 being the most recent).\n\n >>> ");
+            while(!pass(1, listSize, num)) {
 
-            input = scanner.next();
+                System.out.print("There are " + listSize + " shapes in memory. Please choose which you would like to recall (1 being the most recent).\n\n >>> ");
 
-            System.out.println();
+                input = scanner.next();
 
-            try {
-                num = Integer.parseInt(input);
-            } catch (NumberFormatException ex) {
-                // error
+                System.out.println();
+
+                try {
+                    num = Integer.parseInt(input);
+                } catch (NumberFormatException ex) {
+                    // error
+                }
             }
 
+        }else {
+            System.out.println("there are no previous shapes saved.\n");
         }
 
         if(listSize > 0)
@@ -152,16 +157,16 @@ public class ShapeMaker {
 
         String line = "";
         String str = "";
-        BufferedReader byteSource = new BufferedReader(new FileReader("text.txt"));
+        BufferedReader textSource = new BufferedReader(new FileReader("text.txt"));
 
         try {
-            while ((line = byteSource.readLine()) != null) {
+            while ((line = textSource.readLine()) != null) {
 
                 if(line == "\n") {
                     shape.addToArray(str);
                     str = "";
                 }else{
-                    str = str + "\n" + line;
+                    str = str + line + "\n";
                 }
 
             }
