@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.Scanner;
 
 
@@ -10,6 +11,12 @@ public class Main {
     }
 
     private static void prompt() {
+
+        try {
+            readFile();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         ShapeEnum se = null;
 
@@ -48,6 +55,8 @@ public class Main {
                }
 
                if(num == 5) {
+                   writeToFile();
+
                    System.out.println("/////////// EXITING PROGRAM /////////");
                    System.exit(0);
                }
@@ -123,11 +132,56 @@ public class Main {
             // error
         }
 
-        shape.recall(listSize - num );
-
+        shape.printPreviousShape(listSize - num );
 
 
     }
 
+    private static void readFile() throws FileNotFoundException {
+
+        String line = "";
+        BufferedReader byteSource = new BufferedReader(new FileReader("text.txt"));
+
+        try {
+            while ((line = byteSource.readLine()) != null) {
+
+                if(line == "\n") {
+
+                }
+
+
+
+            }
+        } catch(IOException e){
+            System.out.println("ERROR : @loadCodes()");
+        }
+    }
+
+    private static void writeToFile() {
+
+        for(int i = 0; i < shape.getArraySize(); i++) {
+
+            BufferedWriter writer = null;
+            try {
+                writer = new BufferedWriter(new FileWriter("text.txt", true));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String line = shape.getItemFromArray(i);
+            try {
+                writer.append(line);
+                writer.append("\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
 }
 

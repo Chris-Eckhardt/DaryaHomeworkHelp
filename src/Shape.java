@@ -30,12 +30,20 @@ public class Shape {
         list.add(str);
     }
 
-    public void recall(int i) {
+    public void printPreviousShape(int i) {
         System.out.println(list.get(i));
+    }
+
+    public String getItemFromArray(int i) {
+        return list.get(i);
     }
 
     public int getArraySize() {
         return list.size();
+    }
+
+    public void addToArray(String line) {
+        list.add(line);
     }
 
     //Diamond(int) prints rectangle of size n and adds to array
