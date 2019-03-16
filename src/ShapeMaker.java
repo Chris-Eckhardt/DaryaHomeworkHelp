@@ -2,11 +2,15 @@ import java.io.*;
 import java.util.Scanner;
 
 
-public class Main {
+public class ShapeMaker {
 
     private static Shape shape = new Shape();
 
+
+
+
     public static void main(String[] args) {
+        new ShapeMaker();
         prompt();
     }
 
@@ -55,7 +59,6 @@ public class Main {
                }
 
                if(num == 5) {
-                   writeToFile();
 
                    System.out.println("/////////// EXITING PROGRAM /////////");
                    System.exit(0);
@@ -85,25 +88,29 @@ public class Main {
                 }
             }
 
-           //////////////////////////////////
-           //////// CALL THE SHAPE //////////
-           //////////////////////////////////
-           if(num == 1)
-               se = ShapeEnum.TRIANGLE;
+            if(!rec) {
 
-           if(num == 2)
-               se = ShapeEnum.RECTANGLE;
+                //////////////////////////////////
+                //////// CALL THE SHAPE //////////
+                //////////////////////////////////
+                if (num == 1)
+                    se = ShapeEnum.TRIANGLE;
 
-           if(num == 3)
-               se = ShapeEnum.DIAMOND;
+                if (num == 2)
+                    se = ShapeEnum.RECTANGLE;
+
+                if (num == 3)
+                    se = ShapeEnum.DIAMOND;
 
 
-            shape.printShape(se, size); // CALL FOR SHAPE TO BE PRINTED
+                shape.printShape(se, size); // CALL FOR SHAPE TO BE PRINTED
+            }
 
            //resets values
            input = "0";
            size = 0;
            num = 0;
+           rec = false;
 
        }
 
@@ -120,46 +127,50 @@ public class Main {
         String input = "0";
         int num = 0;
 
-        System.out.print("There are " + listSize + " shapes in memory. Please choose which you would like to recall (1 being the most recent).\n\n >>> ");
+        while (listSize > 0 && num < listSize) {
 
-        input = scanner.next();
+            System.out.print("There are " + listSize + " shapes in memory. Please choose which you would like to recall (1 being the most recent).\n\n >>> ");
 
-        System.out.println();
+            input = scanner.next();
 
-        try {
-            num = Integer.parseInt(input);
-        } catch (NumberFormatException ex) {
-            // error
+            System.out.println();
+
+            try {
+                num = Integer.parseInt(input);
+            } catch (NumberFormatException ex) {
+                // error
+            }
+
         }
 
-        shape.printPreviousShape(listSize - num );
-
+        if(listSize > 0)
+            shape.printPreviousShape(listSize - num);
 
     }
 
     private static void readFile() throws FileNotFoundException {
 
         String line = "";
+        String str = "";
         BufferedReader byteSource = new BufferedReader(new FileReader("text.txt"));
 
         try {
             while ((line = byteSource.readLine()) != null) {
 
                 if(line == "\n") {
-
+                    shape.addToArray(str);
+                    str = "";
+                }else{
+                    str = str + "\n" + line;
                 }
-
-
 
             }
         } catch(IOException e){
-            System.out.println("ERROR : @loadCodes()");
+            System.out.println("ERROR : @readFile()");
         }
     }
 
-    private static void writeToFile() {
-
-        for(int i = 0; i < shape.getArraySize(); i++) {
+    public static void writeToFile(String line) {
 
             BufferedWriter writer = null;
             try {
@@ -167,7 +178,7 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            String line = shape.getItemFromArray(i);
+
             try {
                 writer.append(line);
                 writer.append("\n");
@@ -181,7 +192,6 @@ public class Main {
                 e.printStackTrace();
             }
 
-        }
     }
 }
 

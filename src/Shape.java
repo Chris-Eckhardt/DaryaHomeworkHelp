@@ -26,6 +26,8 @@ public class Shape {
                 str = rectangle(n);
                 break;
         }
+
+        ShapeMaker.writeToFile(str);
         //add returned string to list
         list.add(str);
     }
