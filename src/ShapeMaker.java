@@ -6,23 +6,20 @@ public class ShapeMaker {
 
     private static Shape shape = new Shape();
 
-
-
-
     public static void main(String[] args) {
         new ShapeMaker();
         prompt();
     }
 
-    private static void prompt() {
+    private static void prompt() { //this method is responsible for getting user input and giving data to shapes class
 
         try {
-            readFile();
+            readFile(); //this reads previous shapes from text.txt and loads them into an Arraylist in shapes class
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        ShapeEnum se = null;
+        ShapeEnum se = null; //init shapeenum
 
         String input = "0";
         int size = 0;
@@ -52,13 +49,13 @@ public class ShapeMaker {
                     // error
                }
 
-               if(num == 4) {
+               if(num == 4) { // check for recall argument
                    recall();
                    rec = true;
 
                }
 
-               if(num == 5) {
+               if(num == 5) { // exit program argument
 
                    System.out.println("/////////// EXITING PROGRAM /////////");
                    System.exit(0);
@@ -67,7 +64,7 @@ public class ShapeMaker {
 
            }
 
-            if(!rec) {
+            if(!rec) { // skip this block if recall() is called
                 input = "0"; // reset input IMPORTANT!
 
 
@@ -88,7 +85,7 @@ public class ShapeMaker {
                 }
             }
 
-            if(!rec) {
+            if(!rec) {// skip this block if recall() is called
 
                 //////////////////////////////////
                 //////// CALL THE SHAPE //////////
@@ -116,12 +113,12 @@ public class ShapeMaker {
 
     }
 
-    private static boolean pass(int low, int high, int n) {
+    private static boolean pass(int low, int high, int n) { // checks for correct input, returns boolean value
         if(n >= low && n <= high) { return true; }
         else { return false; }
     }
 
-    private static void recall() {
+    private static void recall() { // checks shapes arraylist and give the user chance to recall previously made shapes
         int listSize = shape.getArraySize();
         Scanner scanner = new Scanner(System.in);
         String input = "0";
@@ -131,7 +128,8 @@ public class ShapeMaker {
 
             while(!pass(1, listSize, num)) {
 
-                System.out.print("There are " + listSize + " shapes in memory. Please choose which you would like to recall (1 being the most recent).\n\n >>> ");
+                System.out.print("There are " + listSize +
+                        " shapes in memory. Please choose which you would like to recall (1 being the most recent).\n\n >>> ");
 
                 input = scanner.next();
 
@@ -153,7 +151,7 @@ public class ShapeMaker {
 
     }
 
-    private static void readFile() throws FileNotFoundException {
+    private static void readFile() throws FileNotFoundException { // gets previous shapes from text.txt
 
         String line = "";
         String str = "";
@@ -162,9 +160,9 @@ public class ShapeMaker {
             try {
                 while ((line = textSource.readLine()) != null) {
 
-                    if (line.equals("#")) {
+                    if (line.equals("#")) { // checks for delimiter
                         shape.addToArray(str);
-                        str = "";
+                        str = ""; // resets str
                     } else {
                         str = str + line + "\n";
                     }
@@ -175,7 +173,7 @@ public class ShapeMaker {
         }
 
 
-    public static void writeToFile(String line) {
+    public static void writeToFile(String line) { // adds a shape to the text.txt every time a shape is created
 
             BufferedWriter writer = null;
             try {
@@ -185,8 +183,8 @@ public class ShapeMaker {
             }
 
             try {
-                writer.append(line);
-                writer.append("#\n");
+                writer.append(line); // adds to file, does not overwrite
+                writer.append("#\n"); // this is for delimiting while reading the file back
             } catch (IOException e) {
                 e.printStackTrace();
             }

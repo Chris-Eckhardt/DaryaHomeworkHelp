@@ -27,28 +27,28 @@ public class Shape {
                 break;
         }
 
-        ShapeMaker.writeToFile(str);
+        ShapeMaker.writeToFile(str); // writes new shape to text.txt
         //add returned string to list
         list.add(str);
     }
 
     public void printPreviousShape(int i) {
         System.out.println(list.get(i));
-    }
+    } // prints shape in list at index i
 
     public String getItemFromArray(int i) {
         return list.get(i);
-    }
+    } // not used
 
     public int getArraySize() {
         return list.size();
-    }
+    } // returns size of arraylist
 
     public void addToArray(String line) {
         list.add(line);
-    }
+    } // adds shape to arraylist
 
-    //Diamond(int) prints rectangle of size n and adds to array
+    //Diamond(int) prints diamond of size n and adds to array
     private String diamond(int n) {
         String s = "";
 
@@ -68,7 +68,7 @@ public class Shape {
     }
     
 
-    //Rectangle(int) prints diamond of size n and adds to array
+    //Rectangle(int) prints rectangle of size n and adds to array
     private String rectangle(int n){
             String s = "";
 
